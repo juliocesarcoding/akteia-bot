@@ -1,0 +1,26 @@
+{
+ "name": "akteia-bot",
+ "version": "1.0.0",
+ "description": "",
+ "main": "dist/index.js",
+ "scripts": {
+  "dev": "tsx watch src/index.ts",
+  "start": "tsx src/index.ts",
+  "deploy:commands": "tsx src/discord/deploy-commands.ts",
+  "build": "tsc -p tsconfig.json"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "type": "commonjs",
+ "dependencies": {
+  "discord.js": "^14.25.1",
+  "dotenv": "^17.3.1",
+  "rcon": "^1.1.0"
+ },
+ "devDependencies": {
+  "@types/node": "^25.3.0",
+  "tsx": "^4.21.0",
+  "typescript": "^5.9.3"
+ }
+}

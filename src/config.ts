@@ -1,0 +1,24 @@
+import "dotenv/config";
+
+function required(name: string): string {
+ const v = process.env[name];
+ if (!v || !v.trim()) throw new Error(`Missing env: ${name}`);
+ return v.trim();
+}
+
+function optional(name: string, fallback = ""): string {
+ return (process.env[name] ?? fallback).trim();
+}
+
+export const config = {
+ discord: {
+  token: required("DISCORD_TOKEN"),
+  clientId: required("DISCORD_CLIENT_ID"),
+  guildId: required("DISCORD_GUILD_ID"),
+ },
+ cs: {
+  host: required("CS_HOST"),
+  port: Number(optional("CS_PORT", "27015")),
+  rconPassword: required("CS_RCON_PASSWORD"),
+ },
+};
