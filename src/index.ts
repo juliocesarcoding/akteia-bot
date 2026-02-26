@@ -5,7 +5,8 @@ import { rconCommand } from "./discord/commands/rcon";
 import { mapCommand } from "./discord/commands/maps";
 import { restartCommand } from "./discord/commands/restart";
 import { startMixCommand } from "./discord/commands/startmix";
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, MessageFlags } from "discord.js";
+import { enqueteCommand } from "./discord/commands/enquete";
 
 const client = createDiscordClient();
 
@@ -16,8 +17,9 @@ commandMap.set(rconCommand.data.name, rconCommand);
 commandMap.set(mapCommand.data.name, mapCommand);
 commandMap.set(restartCommand.data.name, restartCommand);
 commandMap.set(startMixCommand.data.name, startMixCommand);
+commandMap.set(enqueteCommand.data.name, enqueteCommand);
 
-client.once("ready", () => {
+client.once("clientReady", () => {
  console.log(`✅ Logado como ${client.user?.tag}`);
 });
 
@@ -30,7 +32,7 @@ client.on("guildMemberAdd", async (member) => {
   const channel = await member.guild.channels
    .fetch(welcomeChannelId)
    .catch(() => null);
-  if (!channel || !channel.isTextBased()) return;
+  if (!channel || !channel.isTextBased() || !("send" in channel)) return;
 
   const embed = new EmbedBuilder()
    .setTitle("🔥 Bem-vindo à AKtéia!")
@@ -71,7 +73,7 @@ client.on("interactionCreate", async (interaction) => {
   } else {
    await interaction.reply({
     content: "❌ Erro ao executar comando.",
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
    });
   }
  }

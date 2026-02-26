@@ -5,6 +5,7 @@ import { rconCommand } from "./commands/rcon";
 import { mapCommand } from "./commands/maps";
 import { restartCommand } from "./commands/restart";
 import { startMixCommand } from "./commands/startmix";
+import { enqueteCommand } from "./commands/enquete";
 
 async function main() {
  const commands = [
@@ -13,6 +14,7 @@ async function main() {
   mapCommand.data.toJSON(),
   restartCommand.data.toJSON(),
   startMixCommand.data.toJSON(),
+  enqueteCommand.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);
