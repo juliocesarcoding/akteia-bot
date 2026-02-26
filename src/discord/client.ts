@@ -2,6 +2,9 @@ import { Client, GatewayIntentBits } from "discord.js";
 
 export function createDiscordClient() {
  return new Client({
-  intents: [GatewayIntentBits.Guilds],
+  intents: [
+   GatewayIntentBits.Guilds,
+   GatewayIntentBits.GuildMembers, // <- ESSA AQUI (senão guildMemberAdd não dispara)
+  ],
  });
 }

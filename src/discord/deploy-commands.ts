@@ -3,12 +3,16 @@ import { config } from "../config";
 import { pingCommand } from "./commands/ping";
 import { rconCommand } from "./commands/rcon";
 import { mapCommand } from "./commands/maps";
+import { restartCommand } from "./commands/restart";
+import { startMixCommand } from "./commands/startmix";
 
 async function main() {
  const commands = [
   pingCommand.data.toJSON(),
   rconCommand.data.toJSON(),
   mapCommand.data.toJSON(),
+  restartCommand.data.toJSON(),
+  startMixCommand.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);
