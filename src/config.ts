@@ -17,6 +17,9 @@ export const config = {
   guildId: required("DISCORD_GUILD_ID"),
   welcomeChannelId: optional("WELCOME_CHANNEL_ID"),
   autoRoleId: optional("AUTO_ROLE_ID"),
+  voiceQueueTrChannelId: optional("VOICE_QUEUE_TR_CHANNEL_ID"),
+  voiceQueueCtChannelId: optional("VOICE_QUEUE_CT_CHANNEL_ID"),
+  voiceCsChannelId: optional("VOICE_QUEUE_CS_CHANNEL_ID"),
  },
  cs: {
   host: required("CS_HOST"),

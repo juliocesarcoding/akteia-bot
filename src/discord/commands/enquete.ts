@@ -4,6 +4,7 @@ import {
  MessageFlags,
  TextChannel,
  PollLayoutType,
+ Routes,
 } from "discord.js";
 import { config } from "../../config"; // ajuste o caminho se necessário
 
@@ -71,9 +72,17 @@ export const enqueteCommand = {
   // Expira em 2 minutos
   setTimeout(async () => {
    try {
-    // Em versões recentes do discord.js, o message.poll existe e tem .end()
-    // Se a tua versão não tiver, me fala qual versão do discord.js que eu te passo a alternativa via REST.
-    await msg.poll?.end();
+    // 1) re-fetch da mensagem (garante que o poll vem carregado)
+    const fresh = await ch.messages.fetch(msg.id);
+
+    // 2) tenta encerrar via discord.js
+    if (fresh.poll) {
+     await fresh.poll.end(); // Poll.end() existe no discord.js :contentReference[oaicite:2]{index=2}
+     return;
+    }
+
+    // 3) fallback REST (mais “baixo nível”, bem confiável)
+    await interaction.client.rest.post(Routes.expirePoll(ch.id, msg.id));
    } catch (err) {
     console.error("Falha ao expirar poll:", err);
    }

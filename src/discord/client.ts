@@ -5,6 +5,7 @@ export function createDiscordClient() {
   intents: [
    GatewayIntentBits.Guilds,
    GatewayIntentBits.GuildMembers, // <- ESSA AQUI (senão guildMemberAdd não dispara)
+   GatewayIntentBits.GuildVoiceStates,
   ],
  });
 }
