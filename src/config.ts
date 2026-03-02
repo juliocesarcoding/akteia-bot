@@ -20,6 +20,9 @@ export const config = {
   voiceQueueTrChannelId: optional("VOICE_QUEUE_TR_CHANNEL_ID"),
   voiceQueueCtChannelId: optional("VOICE_QUEUE_CT_CHANNEL_ID"),
   voiceCsChannelId: optional("VOICE_QUEUE_CS_CHANNEL_ID"),
+  voiceCsChannelIdB: optional("VOICE_QUEUE_CS_CHANNEL_ID_B"),
+  voiceQueueTrChannelIdB: optional("VOICE_QUEUE_TR_CHANNEL_ID_B"),
+  voiceQueueCtChannelIdB: optional("VOICE_QUEUE_CT_CHANNEL_ID_B"),
  },
  cs: {
   host: required("CS_HOST"),

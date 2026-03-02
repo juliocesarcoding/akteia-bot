@@ -8,6 +8,7 @@ import { startMixCommand } from "./discord/commands/startmix";
 import { EmbedBuilder, MessageFlags } from "discord.js";
 import { enqueteCommand } from "./discord/commands/enquete";
 import { separarTimeCommand } from "./discord/commands/separar-time";
+import { separarTimeBCommand } from "./discord/commands/separar-time-b";
 
 const client = createDiscordClient();
 
@@ -20,6 +21,7 @@ commandMap.set(restartCommand.data.name, restartCommand);
 commandMap.set(startMixCommand.data.name, startMixCommand);
 commandMap.set(enqueteCommand.data.name, enqueteCommand);
 commandMap.set(separarTimeCommand.data.name, separarTimeCommand);
+commandMap.set(separarTimeBCommand.data.name, separarTimeBCommand);
 
 client.once("clientReady", () => {
  console.log(`✅ Logado como ${client.user?.tag}`);

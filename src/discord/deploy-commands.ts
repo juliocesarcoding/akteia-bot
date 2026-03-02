@@ -7,6 +7,7 @@ import { restartCommand } from "./commands/restart";
 import { startMixCommand } from "./commands/startmix";
 import { enqueteCommand } from "./commands/enquete";
 import { separarTimeCommand } from "./commands/separar-time";
+import { separarTimeBCommand } from "./commands/separar-time-b";
 
 async function main() {
  const commands = [
@@ -17,6 +18,7 @@ async function main() {
   startMixCommand.data.toJSON(),
   enqueteCommand.data.toJSON(),
   separarTimeCommand.data.toJSON(),
+  separarTimeBCommand.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);
