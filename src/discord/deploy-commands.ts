@@ -8,6 +8,8 @@ import { startMixCommand } from "./commands/startmix";
 import { enqueteCommand } from "./commands/enquete";
 import { separarTimeCommand } from "./commands/separar-time";
 import { separarTimeBCommand } from "./commands/separar-time-b";
+import { startMixBCommand } from "./commands/startmix-b";
+import { mapCommandB } from "./commands/maps-b";
 
 async function main() {
  const commands = [
@@ -19,6 +21,8 @@ async function main() {
   enqueteCommand.data.toJSON(),
   separarTimeCommand.data.toJSON(),
   separarTimeBCommand.data.toJSON(),
+  startMixBCommand.data.toJSON(),
+  mapCommandB.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);

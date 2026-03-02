@@ -28,5 +28,8 @@ export const config = {
   host: required("CS_HOST"),
   port: Number(optional("CS_PORT", "27015")),
   rconPassword: required("CS_RCON_PASSWORD"),
+  host_b: required("CS_HOST_2"),
+  port_b: Number(optional("CS_PORT_2", "2272355")),
+  rconPassword_b: required("CS_RCON_PASSWORD_2"),
  },
 };
