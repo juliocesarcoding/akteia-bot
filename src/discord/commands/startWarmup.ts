@@ -2,10 +2,10 @@ import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { config } from "../../config";
 import { rconExec } from "../../rcon/rconClient";
 
-export const startMixCommand = {
+export const startCompCommand = {
  data: new SlashCommandBuilder()
-  .setName("startmix")
-  .setDescription("Inicia o modo competitivo (mix)"),
+  .setName("aquecimento")
+  .setDescription("Inicia o modo aquecimento para o mix"),
  async execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true });
 
@@ -16,17 +16,24 @@ export const startMixCommand = {
      port: config.cs.port,
      password: config.cs.rconPassword,
     },
-    `say [AKTEIA] Iniciando mix em ..`
+    `say [AKTEIA] Iniciando aquecimento. Separe os times e prepare-se para o mix!`
    );
-
    await rconExec(
     {
      host: config.cs.host,
      port: config.cs.port,
      password: config.cs.rconPassword,
     },
-    `css_start`
+    `exec comp.cfg`
    );
+   //  await rconExec(
+   //   {
+   //    host: config.cs.host,
+   //    port: config.cs.port,
+   //    password: config.cs.rconPassword,
+   //   },
+   //   `css_start`
+   //  );
 
    await interaction.editReply({
     content: `🔥 MIX iniciado `,

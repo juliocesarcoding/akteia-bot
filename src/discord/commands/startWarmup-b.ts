@@ -2,10 +2,10 @@ import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 import { config } from "../../config";
 import { rconExec } from "../../rcon/rconClient";
 
-export const startMixBCommand = {
+export const startCompBCommand = {
  data: new SlashCommandBuilder()
-  .setName("startmix-b")
-  .setDescription("Inicia o modo competitivo (mix)"),
+  .setName("aquecimento")
+  .setDescription("Inicia o modo aquecimento para o mix"),
  async execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true });
 
@@ -16,7 +16,7 @@ export const startMixBCommand = {
      port: config.cs.port_b,
      password: config.cs.rconPassword_b,
     },
-    `say [AKTEIA] Iniciando mix em ..`
+    `say [AKTEIA] Iniciando aquecimento. Separe os times e prepare-se para o mix!`
    );
    await rconExec(
     {
@@ -24,15 +24,23 @@ export const startMixBCommand = {
      port: config.cs.port_b,
      password: config.cs.rconPassword_b,
     },
-    `css_start`
+    `exec comp.cfg`
    );
+   //  await rconExec(
+   //   {
+   //    host: config.cs.host,
+   //    port: config.cs.port,
+   //    password: config.cs.rconPassword,
+   //   },
+   //   `css_start`
+   //  );
 
    await interaction.editReply({
-    content: `🔥 MIX iniciado `,
+    content: `🔥 Aquecimento iniciado`,
    });
   } catch (err: any) {
    await interaction.editReply({
-    content: `❌ Erro ao iniciar mix: ${err.message}`,
+    content: `❌ Erro ao iniciar aquecimento: ${err.message}`,
    });
   }
  },
