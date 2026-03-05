@@ -10,6 +10,8 @@ const ALLOWED_MAPS = new Set([
  "de_anubis",
  "de_overpass",
  "de_vertigo",
+ "de_train",
+ "de_dust2",
  // adicione outros se quiser (retake, aim etc.)
 ]);
 
