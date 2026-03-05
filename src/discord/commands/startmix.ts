@@ -26,6 +26,14 @@ export const startMixCommand = {
     },
     `exec comp.cfg`
    );
+   await rconExec(
+    {
+     host: config.cs.host,
+     port: config.cs.port,
+     password: config.cs.rconPassword,
+    },
+    `say .start`
+   );
 
    await interaction.editReply({
     content: `🔥 MIX iniciado `,
