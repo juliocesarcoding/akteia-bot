@@ -11,6 +11,8 @@ import { separarTimeCommand } from "./discord/commands/separar-time";
 import { separarTimeBCommand } from "./discord/commands/separar-time-b";
 import { startMixBCommand } from "./discord/commands/startmix-b";
 import { mapCommandB } from "./discord/commands/maps-b";
+import { startRetakeCommand } from "./discord/commands/startRetake";
+import { startRetakeBCommand } from "./discord/commands/startRetake-b";
 
 const client = createDiscordClient();
 
@@ -26,6 +28,8 @@ commandMap.set(separarTimeCommand.data.name, separarTimeCommand);
 commandMap.set(separarTimeBCommand.data.name, separarTimeBCommand);
 commandMap.set(startMixBCommand.data.name, startMixBCommand);
 commandMap.set(mapCommandB.data.name, mapCommandB);
+commandMap.set(startRetakeCommand.data.name, startRetakeCommand);
+commandMap.set(startRetakeBCommand.data.name, startRetakeBCommand);
 
 client.once("clientReady", () => {
  console.log(`✅ Logado como ${client.user?.tag}`);

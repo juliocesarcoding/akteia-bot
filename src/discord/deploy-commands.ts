@@ -10,6 +10,8 @@ import { separarTimeCommand } from "./commands/separar-time";
 import { separarTimeBCommand } from "./commands/separar-time-b";
 import { startMixBCommand } from "./commands/startmix-b";
 import { mapCommandB } from "./commands/maps-b";
+import { startRetakeCommand } from "./commands/startRetake";
+import { startRetakeBCommand } from "./commands/startRetake-b";
 
 async function main() {
  const commands = [
@@ -23,6 +25,8 @@ async function main() {
   separarTimeBCommand.data.toJSON(),
   startMixBCommand.data.toJSON(),
   mapCommandB.data.toJSON(),
+  startRetakeCommand.data.toJSON(),
+  startRetakeBCommand.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);
