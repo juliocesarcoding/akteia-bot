@@ -13,6 +13,8 @@ import { startMixBCommand } from "./discord/commands/startmix-b";
 import { mapCommandB } from "./discord/commands/maps-b";
 import { startRetakeCommand } from "./discord/commands/startRetake";
 import { startRetakeBCommand } from "./discord/commands/startRetake-b";
+import { startCompCommand } from "./discord/commands/startWarmup";
+import { startCompBCommand } from "./discord/commands/startWarmup-b";
 
 const client = createDiscordClient();
 
@@ -30,6 +32,8 @@ commandMap.set(startMixBCommand.data.name, startMixBCommand);
 commandMap.set(mapCommandB.data.name, mapCommandB);
 commandMap.set(startRetakeCommand.data.name, startRetakeCommand);
 commandMap.set(startRetakeBCommand.data.name, startRetakeBCommand);
+commandMap.set(startCompCommand.data.name, startCompCommand);
+commandMap.set(startCompBCommand.data.name, startCompBCommand);
 
 client.once("clientReady", () => {
  console.log(`✅ Logado como ${client.user?.tag}`);
