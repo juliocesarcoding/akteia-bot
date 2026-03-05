@@ -4,7 +4,7 @@ import { rconExec } from "../../rcon/rconClient";
 
 export const startCompBCommand = {
  data: new SlashCommandBuilder()
-  .setName("aquecimento")
+  .setName("aquecimento-b")
   .setDescription("Inicia o modo aquecimento para o mix"),
  async execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true });

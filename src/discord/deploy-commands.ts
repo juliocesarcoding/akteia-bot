@@ -12,6 +12,8 @@ import { startMixBCommand } from "./commands/startmix-b";
 import { mapCommandB } from "./commands/maps-b";
 import { startRetakeCommand } from "./commands/startRetake";
 import { startRetakeBCommand } from "./commands/startRetake-b";
+import { startCompCommand } from "./commands/startWarmup";
+import { startCompBCommand } from "./commands/startWarmup-b";
 
 async function main() {
  const commands = [
@@ -27,6 +29,8 @@ async function main() {
   mapCommandB.data.toJSON(),
   startRetakeCommand.data.toJSON(),
   startRetakeBCommand.data.toJSON(),
+  startCompCommand.data.toJSON(),
+  startCompBCommand.data.toJSON(),
  ];
 
  const rest = new REST({ version: "10" }).setToken(config.discord.token);
